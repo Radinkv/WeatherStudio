@@ -2,9 +2,9 @@
 <html>
 
 <head>
+  <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
-  <script src="/node_modules/jquery/dist/jquery.js"></script>
-  <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 
 <body>
@@ -31,6 +31,7 @@
         <form class="navbar-form navbar-left" id="search" ondragleave="">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="City" id="city" form="search" onkeypress="searchInput(event)"></input>
+            <input type="text" class="form-control" placeholder="Country" id="country" form="search" onkeypress="searchInput(event)"></input>
           </div>
           <button type="button" class="btn btn-default" onclick="search()">Search</button>
         </form>
@@ -52,8 +53,16 @@
     <!-- /.container-fluid -->
   </nav>
 
+  <div class="container">
 
-
+    <div class="row">
+      <div class="text-center">
+        <img src="/Screen Shot 2017-06-15 at 4.27.39 PM.png">
+        <h6>The weather of Canada and Usa</h6>
+        <h4>If you want to search a city in the Usa, please enter the first two letters of the state instead of the country itself.</h4>
+      </div>
+    </div>
+  </div>
 
   <script type="text/javascript">
     function setElementText(elementId, text) {
@@ -63,17 +72,20 @@
 
 
     function search() {
-      window.location = "./weatherAction.html?city=" + document.getElementById("city").value;
+      window.location = "./weatherAction.html?city=" + document.getElementById("city").value + "&country=" + document.getElementById(
+        "country").value;
       //document.getElementById("myForm").submit();
     }
 
 
 
-    function searchInput(e){
-        if(e.keyCode === 13){
-            e.preventDefault();
-             window.location = "./weatherAction.html?city=" + document.getElementById("city").value;
-        }
+    function searchInput(e) {
+      if (e.keyCode === 13) {
+        e.preventDefault();
+        window.location = "./weatherAction.html?city=" + document.getElementById("city").value + "&country=" + document
+          .getElementById(
+            "country").value;
+      }
     }
   </script>
 

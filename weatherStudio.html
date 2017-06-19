@@ -8,8 +8,67 @@
         <script src="/node_modules/jquery/dist/jquery.js"></script>
         <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
     </head>
-<h1>Weather of today</h1>
+    <div class="container">
 
+        <div class="row">
+            <div class="text-center">
+                <h1>The Current Weather of <span id="city"></span>, <span id="country"></span></h1>
+            </div>
+        </div>
+    </div>
+    <h1>
+        <span class="text-left" id="temp"></span>°C <br> Wind Speed: <span id="wind"></span> km/h <br> Wind Direction:
+        <span id="windDirection"></span>
+    </h1>
+
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        function setElementText(elementId, text) {
+            var element = document.getElementById(elementId);
+            element.innerHTML = text;
+        }
+
+        var weatherData;
+
+        var api =
+            'http://api.wunderground.com/api/d83ecad037bff5e8/geolookup/conditions/forecast/q/' +
+            getParameterByName(
+                "country") + '/' +
+            getParameterByName("city") + '.json';
+        $.ajax({
+            url: api,
+            type: 'GET',
+            success: function (data) {
+                weatherData = data;
+                showWeatherData();
+            },
+            error: function (data) {
+                confirm(
+                    "We couldn't find your weather. Sorry for the inconvenience."
+                )
+            }
+        });
+
+
+        '°';
+
+        function showWeatherData() {
+            setElementText("city", weatherData.location.city);
+            setElementText("country", weatherData.location.country_name);
+            setElementText("temp", weatherData.current_observation.temp_c);
+            setElementText("wind", weatherData.current_observation.wind_kph);
+            setElementText("windDirection", weatherData.current_observation.wind_dir);
+        }
+    </script>
 </body>
 
 </html>
