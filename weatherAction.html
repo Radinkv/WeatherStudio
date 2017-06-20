@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 
-<body background="">
+<body>
 
   <div class="container">
 
@@ -20,7 +20,6 @@
       </div>
     </div>
   </div>
-
 
   <script type="text/javascript">
     function setElementText(elementId, text) {
@@ -45,7 +44,7 @@
     setElementText("country", serialNumber);
 
 setTimeout(function () {
-  window.location = "./weatherStudio.html?city=" + getParameterByName("city") + "&country=" + getParameterByName("country");
+  window.location = "./weatherStudio.html?city=" + getParameterByName("city");
 }, 3000);
    
   </script>

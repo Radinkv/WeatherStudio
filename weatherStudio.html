@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<body>
+<body background="https://i.ytimg.com/vi/3eRzuL7liUg/maxresdefault.jpg">
 
     <head>
         <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
@@ -16,22 +16,16 @@
             </div>
         </div>
     </div>
-    <h1>
-        <span class="text-left" id="temp"></span>°C <br> Wind Speed: <span id="wind"></span> km/h <br> Wind Direction:
-        <span id="windDirection"></span>
-    </h1>
+    <h2>
+        <div class="text-left"><span id="temp"></span>°C </div>
+        <div class="text-center"> Wind Speed: <span id="wind"></span> km/h </div>
+        <div class="text-right"> Weather:
+            <span id="description"> </span> </div> <br>
+        <div class="text-center"> Direction:
+            <span id="windDirection"></span> </div>
+    </h2>
 
     <script>
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
-        }
-
         function setElementText(elementId, text) {
             var element = document.getElementById(elementId);
             element.innerHTML = text;
@@ -39,35 +33,62 @@
 
         var weatherData;
 
-        var api =
-            'http://api.wunderground.com/api/d83ecad037bff5e8/geolookup/conditions/forecast/q/' +
-            getParameterByName(
-                "country") + '/' +
-            getParameterByName("city") + '.json';
-        $.ajax({
-            url: api,
-            type: 'GET',
-            success: function (data) {
+
+        $.get('http://api.openweathermap.org/data/2.5/forecast?q=' + getParameterByName("city") +
+            '&appid=f0275dd368d189099c9b9eb9ac9ff10d',
+            function (data) {
                 weatherData = data;
                 showWeatherData();
-            },
-            error: function (data) {
-                confirm(
-                    "We couldn't find your weather. Sorry for the inconvenience."
-                )
-            }
-        });
-
-
+            });
+        console.log(weatherData);
         '°';
 
+
         function showWeatherData() {
-            setElementText("city", weatherData.location.city);
-            setElementText("country", weatherData.location.country_name);
-            setElementText("temp", weatherData.current_observation.temp_c);
-            setElementText("wind", weatherData.current_observation.wind_kph);
-            setElementText("windDirection", weatherData.current_observation.wind_dir);
+
+            var between = function (x, min, max) {
+                return x >= min && x <= max;
+            }
+            var n = 'N';
+            var ne = 'NE';
+            var e = 'E';
+            var se = 'SE';
+            var s = 'S';
+            var sw = 'SW';
+            var w = 'W';
+            var nw = 'NW';
+            var windDeg = weatherData.list[0].wind.deg;
+            if (windDeg < 30) {
+                windDeg = n;
+            } else if (between(windDeg, 31, 60)) {
+                windDeg = ne;
+            } else if (between(windDeg, 61, 120)) {
+                windDeg = e;
+            } else if (between(windDeg, 121, 150)) {
+                windDeg = se;
+            } else if (between(windDeg, 151, 210)) {
+                windDeg = s;
+            } else if (between(windDeg, 211, 240)) {
+                windDeg = sw;
+            } else if (between(windDeg, 241, 300)) {
+                windDeg = w;
+            } else if (between(windDeg, 301, 330)) {
+                windDeg = nw;
+            } else {
+                windDeg = n;
+            }
+            setElementText("city", weatherData.city.name);
+            setElementText("country", weatherData.city.country);
+            var temp = weatherData.list[0].main.temp - 273.15;
+            var beautifiedTemp = temp.toFixed(2);
+            var windSpeed = weatherData.list[0].wind.speed;
+            var beautifiedWind = windSpeed.toFixed(2);
+            setElementText("temp", beautifiedTemp);
+            setElementText("wind", beautifiedWind);
+            setElementText("windDirection", windDeg);
+            setElementText("description", weatherData.list[1].weather[0].description);
         }
+        var i = asdf;
     </script>
 </body>
 
