@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 
-<body background="https://i.ytimg.com/vi/3eRzuL7liUg/maxresdefault.jpg">
+<body background="http://advisoranalyst.com/glablog/wp-content/uploads/2015/03/ComputerDesktopWallpapersCollection965__043.jpg">
 
     <head>
         <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
         <script src="/node_modules/jquery/dist/jquery.js"></script>
         <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <style>
+            * {
+                color: orangered;
+            }
+        </style>
     </head>
     <div class="container">
 
@@ -44,8 +49,160 @@
         '°';
 
 
-        function showWeatherData() {
 
+        function showWeatherData() {
+            var description = weatherData.list[1].weather[0].description;
+            if (description === 'clear sky') {
+                document.body.style.backgroundImage =
+                    "url('http://advisoranalyst.com/glablog/wp-content/uploads/2015/03/ComputerDesktopWallpapersCollection965__043.jpg')";
+            } else if (description === 'few clouds') {
+                document.body.style.backgroundImage =
+                    "url('http://wallpaperswide.com/download/few_clouds_sky-wallpaper-1152x720.jpg')";
+            } else if (description === 'scattered clouds') {
+                document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/z2UDZMu2GLU/maxresdefault.jpg')";
+            } else if (description === 'broken clouds') {
+                document.body.style.backgroundImage = "url('')";
+            } else if (description === 'light rain') {
+                document.body.style.backgroundImage = "url('http://cdn.wallpapersafari.com/39/31/AJ8Rli.jpg')";
+            } else if (description === 'rain') {
+                // document.body.style.backgroundImage =
+                    
+            } else if (description === 'thunderstorm') {
+                document.body.style.backgroundImage =
+                    "url('https://4.bp.blogspot.com/-hfnaq41M4ek/UkBrB0-Xw-I/AAAAAAAAMvo/r-xRBnwl3z8/s0/Big_storm_is_coming-ultra-hd-wallpapers.jpg')";
+            } else if (description === 'snow') {
+                document.body.style.backgroundImage =
+                    "url('https://vignette4.wikia.nocookie.net/phobia/images/a/aa/Snow.jpg/revision/latest?cb=20161109045734')";
+            } else if (description === 'moderate rain') {
+                document.body.style.backgroundImage = "url('http://cdn.wallpapersafari.com/58/17/nMwILT.jpg')";
+            } else if (description === 'thunderstorm with rain') {
+                document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
+            } else if (description === 'thunderstorm with heavy rain') {
+                document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
+            } else if (description === 'light thunderstorm') {
+                document.body.style.backgroundImage =
+                    "url('http://cdn.pcwallart.com/images/thunderstorm-rain-wallpaper-2.jpg')";
+            } else if (description === 'heavy thunderstorm') {
+                document.body.style.backgroundImage =
+                    "url('https://wallpaperscraft.com/image/lightning_sky_trees_outlines_stars_bad_weather_night_orange_birds_64059_3840x2400.jpg')";
+            } else if (description === 'ragged thunderstorm') {
+                document.body.style.backgroundImage =
+                    "url('https://4.bp.blogspot.com/-pyqTQzkBQY0/UkBpyv-Df-I/AAAAAAAAMug/Tc-ajEOLxA0/s0/Lightnings-hd-wallpapers-1080p.jpg')";
+            } else if (description === 'thunderstorm with light drizzle') {
+                document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
+            } else if (description === 'thunderstorm with drizzle') {
+                document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
+            } else if (description === 'thunderstorm with heavy drizzle') {
+                document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
+            } else if (description === 'light intensity drizzle') {
+                document.body.style.backgroundImage =
+                    "url('https://static1.squarespace.com/static/5381188fe4b03134acdfe96a/t/59138dfb197aeab3e23ec07e/1494453760265/landscapes-trees_00424381.jpg?format=2500w')";
+            } else if (description === 'drizzle') {
+                document.body.style.backgroundImage =
+                    "url('https://static1.squarespace.com/static/5381188fe4b03134acdfe96a/t/59138dfb197aeab3e23ec07e/1494453760265/landscapes-trees_00424381.jpg?format=2500w')";
+            } else if (description === 'light intensity drizzle rain') {
+                document.body.style.backgroundImage =
+                    "url('https://static1.squarespace.com/static/5381188fe4b03134acdfe96a/t/59138dfb197aeab3e23ec07e/1494453760265/landscapes-trees_00424381.jpg?format=2500w')";
+            } else if (description === 'drizzle rain') {
+                document.body.style.backgroundImage =
+                    "url('https://static1.squarespace.com/static/5381188fe4b03134acdfe96a/t/59138dfb197aeab3e23ec07e/1494453760265/landscapes-trees_00424381.jpg?format=2500w')";
+            } else if (description === 'heavy intensity drizzle rain') {
+                document.body.style.backgroundImage =
+                    "url('https://static1.squarespace.com/static/5381188fe4b03134acdfe96a/t/59138dfb197aeab3e23ec07e/1494453760265/landscapes-trees_00424381.jpg?format=2500w')";
+            } else if (description === 'shower rain and drizzle') {
+                document.body.style.backgroundImage =
+                    "url('https://static1.squarespace.com/static/5381188fe4b03134acdfe96a/t/59138dfb197aeab3e23ec07e/1494453760265/landscapes-trees_00424381.jpg?format=2500w')";
+            } else if (description === 'heavy shower rain and drizzle') {
+                document.body.style.backgroundImage =
+                    "url('https://static1.squarespace.com/static/5381188fe4b03134acdfe96a/t/59138dfb197aeab3e23ec07e/1494453760265/landscapes-trees_00424381.jpg?format=2500w')";
+            } else if (description === 'shower drizzle') {
+                document.body.style.backgroundImage =
+                    "url('https://static1.squarespace.com/static/5381188fe4b03134acdfe96a/t/59138dfb197aeab3e23ec07e/1494453760265/landscapes-trees_00424381.jpg?format=2500w')";
+            } else if (description === 'heavy intensity rain') {
+                document.body.style.backgroundImage = "url('https://static.pexels.com/photos/35035/pexels-photo.jpg')";
+            } else if (description === 'very heavy rain') {
+                document.body.style.backgroundImage = "url('https://static.pexels.com/photos/35035/pexels-photo.jpg')";
+            } else if (description === 'extreme rain') {
+                document.body.style.backgroundImage =
+                    "url('http://wallpaper-gallery.net/images/heavy-rain-wallpapers/heavy-rain-wallpapers-13.jpg')";
+            } else if (description === 'freezing rain') {
+                document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/KZ6EzAqvfOw/maxresdefault.jpg')";
+            } else if (description === 'light intensity shower rain') {
+                document.body.style.backgroundImage =
+                    "url('https://cdn.suwalls.com/wallpapers/nature/rain-of-sunshine-through-dark-heavy-clouds-48861-2560x1600.jpg')";
+            } else if (description === 'shower rain') {
+                document.body.style.backgroundImage = "url('http://cdn.wallpapersafari.com/4/31/qoLXTZ.jpg')";
+            } else if (description === 'heavy intensity shower rain') {
+                document.body.style.backgroundImage = "url('http://cdn.wallpapersafari.com/4/31/qoLXTZ.jpg')";
+            } else if (description === 'ragged shower rain') {
+                document.body.style.backgroundImage = "url('http://cdn.wallpapersafari.com/4/31/qoLXTZ.jpg')";
+            } else if (description === 'light snow') {
+                document.body.style.backgroundImage = "url('http://cdn.wallpapersafari.com/52/86/6bwWPU.jpg')";
+            } else if (description === 'heavy snow') {
+                document.body.style.backgroundImage =
+                    "url('https://vignette4.wikia.nocookie.net/phobia/images/a/aa/Snow.jpg/revision/latest?cb=20161109045734')";
+            } else if (description === 'sleet') {
+               document.body.style.backgroundImage =
+                   "url('https://report.az/storage/news/de10a118cd99261871b55102bc84dddc/0ac722dc-8037-4f23-99c4-776a18ecdf0d.jpg')";
+            } else if (description === 'shower sleet') {
+                document.body.style.backgroundImage =
+                    "url('https://report.az/storage/news/de10a118cd99261871b55102bc84dddc/0ac722dc-8037-4f23-99c4-776a18ecdf0d.jpg')";
+            } else if (description === 'light rain and snow') {
+                document.body.style.backgroundImage =
+                    "url('http://www.wallpaperup.com/uploads/wallpapers/2015/11/19/838955/4d50abdeff08d436c5a75e52e274798c.jpg')";
+            } else if (description === 'rain and snow') {
+                document.body.style.backgroundImage =
+                    "url('http://www.wallpaperup.com/uploads/wallpapers/2015/11/19/838955/4d50abdeff08d436c5a75e52e274798c.jpg')";
+            } else if (description === 'light shower snow') {
+                document.body.style.backgroundImage = "url('http://cdn.wallpapersafari.com/14/18/kCvADK.jpg')";
+            } else if (description === 'shower snow') {
+                document.body.style.backgroundImage = "url('http://cdn.wallpapersafari.com/14/18/kCvADK.jpg')";
+            } else if (description === 'heavy shower snow') {
+                document.body.style.backgroundImage =
+                    "url('https://www.walldevil.com/wallpapers/a85/3789-forest-tree-snow-winter.jpg')";
+            } else if (description === 'mist') {
+                document.body.style.backgroundImage =
+                    "url('http://www.yoanu.com/wp-content/uploads/2015/08/morning-mist-photos-wallpaper-gallery-ns61o00s.jpg')";
+            } else if (description === 'smoke') {
+                document.body.style.backgroundImage =
+                    "url('http://www.wallpapers-web.com/data/out/82/4459894-forest-fire-wallpapers.jpg')";
+            } else if (description === 'haze') {
+                document.body.style.backgroundImage =
+                    "url('https://wallpaperscraft.com/image/wood_background_coniferous_darkness_fog_haze_57316_3840x2400.jpg')";
+            } else if (description === 'sand, dust whirls') {
+                document.body.style.backgroundImage =
+                    "url('https://4.bp.blogspot.com/-1ihgTPOVGaM/VcT_rvit_QI/AAAAAAABvbg/oGCpfoXhaCo/s0/Sahara_Desert_uhd.jpg')";
+            } else if (description === 'fog') {
+                document.body.style.backgroundImage =
+                    "url('http://www.wallpapermade.com/images/wallpapers/originals/city-under-the-fog-mountains-at-sunrise-wallpaper-5284.jpg')";
+            } else if (description === 'sand') {
+                document.body.style.backgroundImage =
+                    "url('https://wallpaperscraft.com/image/beach_tropics_sea_sand_palm_trees_sunset_evening_84730_3840x2160.jpg')";
+
+            } else if (description === 'dust') {
+                document.body.style.backgroundImage = "url('')";
+            } else if (description === 'volcanic ash') {
+                document.body.style.backgroundImage = "url('')";
+            } else if (description === 'squalls') {
+                document.body.style.backgroundImage = "url('')";
+            } else if (description === 'tornado') {
+                document.body.style.backgroundImage =
+                    "url('https://s-media-cache-ak0.pinimg.com/originals/68/bf/bb/68bfbbdcc39591e41492ff3804eabe76.jpg')";
+            } else if (description === 'tropical storm') {
+                document.body.style.backgroundImage = "url('')";
+            } else if (description === 'hurricane') {
+                document.body.style.backgroundImage = "url('')";
+            } else if (description === 'cold') {
+                document.body.style.backgroundImage = "url('')";
+            } else if (description === 'hot') {
+                document.body.style.backgroundImage = "url('')";
+            } else if (description === 'windy') {
+                document.body.style.backgroundImage = "url('')";
+            } else if (description === 'hail') {
+                document.body.style.backgroundImage = "url('')";
+            } else {
+
+            }
             var between = function (x, min, max) {
                 return x >= min && x <= max;
             }
@@ -88,7 +245,6 @@
             setElementText("windDirection", windDeg);
             setElementText("description", weatherData.list[1].weather[0].description);
         }
-        var i = asdf;
     </script>
 </body>
 
