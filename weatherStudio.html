@@ -8,28 +8,58 @@
         <script src="/node_modules/jquery/dist/jquery.js"></script>
         <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
         <style>
-            * {
-                color: orangered;
+            p,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            a {
+                color: red;
             }
         </style>
+
     </head>
-    <div class="container">
-
+    <div class="container, text-center" style="color:dodgerblue;">
+        <h1>The Current Weather of <span id="city"></span>, <span id="country"></span></h1>
         <div class="row">
-            <div class="text-center">
-                <h1>The Current Weather of <span id="city"></span>, <span id="country"></span></h1>
-            </div>
+            <u>
+                <div class="col-md-4">
+                    <h1>Temperature</h1>
+                </div>
+                <div class="col-md-4">
+                    <h1>Wind</h1>
+                </div>
+                <div class="col-md-4">
+                    <h1>Atmosphere</h1>
+                </div>
+            </u>
         </div>
-    </div>
-    <h2>
-        <div class="text-left"><span id="temp"></span>°C </div>
-        <div class="text-center"> Wind Speed: <span id="wind"></span> km/h </div>
-        <div class="text-right"> Weather:
-            <span id="description"> </span> </div> <br>
-        <div class="text-center"> Direction:
-            <span id="windDirection"></span> </div>
-    </h2>
 
+    </div>
+    <div class="container, text-center">
+        <h2>
+            <div class="row">
+                <div class="col-md-4">
+                    Temp: <span id="temp"></span>°C
+                    <br> Temp lo (past 3hrs): <span id="tempLo"> </span>°C
+                    <br> Temp hi (past 3hrs): <span id="tempHi"> </span>°C
+                </div>
+                <div class="col-md-4">
+                    Wind Speed: <span id="wind"></span> km/h
+                    <br> Wind Direction: <span id="windDirection"> </span>
+
+                </div>
+                <div class="col-md-4">
+                    Weather:
+                    <span id="description"> </span>
+                    <br>Cloud cover: <span id="clouds"> </span>%
+                    <br> Pressure: <span id="pressure"></span> hPa
+                </div>
+
+                </h1>
+            </div>
+    </div>
     <script>
         function setElementText(elementId, text) {
             var element = document.getElementById(elementId);
@@ -59,14 +89,15 @@
                 document.body.style.backgroundImage =
                     "url('http://wallpaperswide.com/download/few_clouds_sky-wallpaper-1152x720.jpg')";
             } else if (description === 'scattered clouds') {
-                document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/z2UDZMu2GLU/maxresdefault.jpg')";
+                document.body.style.backgroundImage =
+                    "url('https://i.ytimg.com/vi/z2UDZMu2GLU/maxresdefault.jpg')";
             } else if (description === 'broken clouds') {
                 document.body.style.backgroundImage = "url('')";
             } else if (description === 'light rain') {
                 document.body.style.backgroundImage = "url('http://cdn.wallpapersafari.com/39/31/AJ8Rli.jpg')";
             } else if (description === 'rain') {
                 // document.body.style.backgroundImage =
-                    
+
             } else if (description === 'thunderstorm') {
                 document.body.style.backgroundImage =
                     "url('https://4.bp.blogspot.com/-hfnaq41M4ek/UkBrB0-Xw-I/AAAAAAAAMvo/r-xRBnwl3z8/s0/Big_storm_is_coming-ultra-hd-wallpapers.jpg')";
@@ -76,9 +107,11 @@
             } else if (description === 'moderate rain') {
                 document.body.style.backgroundImage = "url('http://cdn.wallpapersafari.com/58/17/nMwILT.jpg')";
             } else if (description === 'thunderstorm with rain') {
-                document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
+                document.body.style.backgroundImage =
+                    "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
             } else if (description === 'thunderstorm with heavy rain') {
-                document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
+                document.body.style.backgroundImage =
+                    "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
             } else if (description === 'light thunderstorm') {
                 document.body.style.backgroundImage =
                     "url('http://cdn.pcwallart.com/images/thunderstorm-rain-wallpaper-2.jpg')";
@@ -89,11 +122,14 @@
                 document.body.style.backgroundImage =
                     "url('https://4.bp.blogspot.com/-pyqTQzkBQY0/UkBpyv-Df-I/AAAAAAAAMug/Tc-ajEOLxA0/s0/Lightnings-hd-wallpapers-1080p.jpg')";
             } else if (description === 'thunderstorm with light drizzle') {
-                document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
+                document.body.style.backgroundImage =
+                    "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
             } else if (description === 'thunderstorm with drizzle') {
-                document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
+                document.body.style.backgroundImage =
+                    "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
             } else if (description === 'thunderstorm with heavy drizzle') {
-                document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
+                document.body.style.backgroundImage =
+                    "url('https://i.ytimg.com/vi/FdQmvpqV6Jo/maxresdefault.jpg')";
             } else if (description === 'light intensity drizzle') {
                 document.body.style.backgroundImage =
                     "url('https://static1.squarespace.com/static/5381188fe4b03134acdfe96a/t/59138dfb197aeab3e23ec07e/1494453760265/landscapes-trees_00424381.jpg?format=2500w')";
@@ -119,14 +155,17 @@
                 document.body.style.backgroundImage =
                     "url('https://static1.squarespace.com/static/5381188fe4b03134acdfe96a/t/59138dfb197aeab3e23ec07e/1494453760265/landscapes-trees_00424381.jpg?format=2500w')";
             } else if (description === 'heavy intensity rain') {
-                document.body.style.backgroundImage = "url('https://static.pexels.com/photos/35035/pexels-photo.jpg')";
+                document.body.style.backgroundImage =
+                    "url('https://static.pexels.com/photos/35035/pexels-photo.jpg')";
             } else if (description === 'very heavy rain') {
-                document.body.style.backgroundImage = "url('https://static.pexels.com/photos/35035/pexels-photo.jpg')";
+                document.body.style.backgroundImage =
+                    "url('https://static.pexels.com/photos/35035/pexels-photo.jpg')";
             } else if (description === 'extreme rain') {
                 document.body.style.backgroundImage =
                     "url('http://wallpaper-gallery.net/images/heavy-rain-wallpapers/heavy-rain-wallpapers-13.jpg')";
             } else if (description === 'freezing rain') {
-                document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/KZ6EzAqvfOw/maxresdefault.jpg')";
+                document.body.style.backgroundImage =
+                    "url('https://i.ytimg.com/vi/KZ6EzAqvfOw/maxresdefault.jpg')";
             } else if (description === 'light intensity shower rain') {
                 document.body.style.backgroundImage =
                     "url('https://cdn.suwalls.com/wallpapers/nature/rain-of-sunshine-through-dark-heavy-clouds-48861-2560x1600.jpg')";
@@ -142,8 +181,8 @@
                 document.body.style.backgroundImage =
                     "url('https://vignette4.wikia.nocookie.net/phobia/images/a/aa/Snow.jpg/revision/latest?cb=20161109045734')";
             } else if (description === 'sleet') {
-               document.body.style.backgroundImage =
-                   "url('https://report.az/storage/news/de10a118cd99261871b55102bc84dddc/0ac722dc-8037-4f23-99c4-776a18ecdf0d.jpg')";
+                document.body.style.backgroundImage =
+                    "url('https://report.az/storage/news/de10a118cd99261871b55102bc84dddc/0ac722dc-8037-4f23-99c4-776a18ecdf0d.jpg')";
             } else if (description === 'shower sleet') {
                 document.body.style.backgroundImage =
                     "url('https://report.az/storage/news/de10a118cd99261871b55102bc84dddc/0ac722dc-8037-4f23-99c4-776a18ecdf0d.jpg')";
@@ -180,26 +219,34 @@
                     "url('https://wallpaperscraft.com/image/beach_tropics_sea_sand_palm_trees_sunset_evening_84730_3840x2160.jpg')";
 
             } else if (description === 'dust') {
-                document.body.style.backgroundImage = "url('')";
+                document.body.style.backgroundImage =
+                    "url('https://i.ytimg.com/vi/yRwEGppcFbo/maxresdefault.jpg')";
             } else if (description === 'volcanic ash') {
-                document.body.style.backgroundImage = "url('')";
+                document.body.style.backgroundImage =
+                    "url('https://i.ytimg.com/vi/LUlN9zbvDKU/maxresdefault.jpg')";
             } else if (description === 'squalls') {
-                document.body.style.backgroundImage = "url('')";
+                document.body.style.backgroundImage = "url('http://images.wisegeek.com/squall-line.jpg')";
             } else if (description === 'tornado') {
                 document.body.style.backgroundImage =
                     "url('https://s-media-cache-ak0.pinimg.com/originals/68/bf/bb/68bfbbdcc39591e41492ff3804eabe76.jpg')";
             } else if (description === 'tropical storm') {
-                document.body.style.backgroundImage = "url('')";
+                document.body.style.backgroundImage =
+                    "url('http://www.zastavki.com/pictures/originals/2015/Nature___Sea_Approaching_tropical_storm_093747_.jpg')";
             } else if (description === 'hurricane') {
-                document.body.style.backgroundImage = "url('')";
+                document.body.style.backgroundImage =
+                    "url('http://universe-beauty.com/albums/spaceset2/NASA/eath-from-space/Hurricane-Isabel2.jpg')";
             } else if (description === 'cold') {
-                document.body.style.backgroundImage = "url('')";
+                document.body.style.backgroundImage =
+                    "url('http://wallpapercraft.net/wp-content/uploads/2016/08/Winter-nature-desktop-background-1920x1080.jpg')";
             } else if (description === 'hot') {
-                document.body.style.backgroundImage = "url('')";
+                document.body.style.backgroundImage =
+                    "url('http://www.hdwallpapers.in/download/sahara_desert_4k_8k-3840x2160.jpg')";
             } else if (description === 'windy') {
-                document.body.style.backgroundImage = "url('')";
+                document.body.style.backgroundImage =
+                    "url('https://i.ytimg.com/vi/SH3yjwVeXVA/maxresdefault.jpg')";
             } else if (description === 'hail') {
-                document.body.style.backgroundImage = "url('')";
+                document.body.style.backgroundImage =
+                    "url('https://i.ytimg.com/vi/G3kOPpTOYC8/maxresdefault.jpg')";
             } else {
 
             }
@@ -244,8 +291,24 @@
             setElementText("wind", beautifiedWind);
             setElementText("windDirection", windDeg);
             setElementText("description", weatherData.list[1].weather[0].description);
+            setElementText("clouds", weatherData.list[2].clouds.all);
+            var hiTemp = weatherData.list[0].main.temp_max - 273.15;
+            var beautifyHi = hiTemp.toFixed(2);
+            setElementText("tempHi", beautifyHi);
+            var loTemp = weatherData.list[0].main.temp_min - 273.15;
+            var beautifyLo = loTemp.toFixed(2);
+            setElementText("tempLo", beautifyLo);
+            setElementText("pressure", weatherData.list[0].main.pressure);
         }
     </script>
+
+    <div class="container" style="position: absolute; bottom: 5px; font-size: 26pt;">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="/index.html">Back to home page -></a>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
